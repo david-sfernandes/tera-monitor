@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.card {
+  @apply bg-white border border-zinc-50 rounded-md shadow;
+}

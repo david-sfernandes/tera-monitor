@@ -1,4 +1,4 @@
-export default async function getDevicesByType() {
+export async function GET() {
   const milvus = process.env.TOKEN || "";
 
   const res = await fetch(
@@ -13,5 +13,5 @@ export default async function getDevicesByType() {
     }
   );
   const data: MilvusResponse = await res.json();
-  return data.lista;
+  return Response.json(data.lista);
 }

@@ -1,4 +1,4 @@
-type Device = {
+type APIDevice = {
   id: number;
   hostname: string;
   apelido: string;
@@ -42,12 +42,18 @@ type DeviceResponse = {
       per_page: string;
     };
   };
-  lista: Device[];
+  lista: APIDevice[];
+};
+
+type MilvusStatus = {
+  hostname: string | null;
+  status: "Offline" | "Online" | "Desconhecido";
 };
 
 type StatusResponse = {
-  hostname: string | null;
-  status: "Offline" | "Online" | "Desconhecido";
+  id: string;
+  status: MilvusStatus;
+  date: Date;
 };
 
 type MilvusDevice = {
@@ -135,3 +141,16 @@ type MilvusResponse = {
   };
   lista: MilvusDevice[];
 };
+
+type Device = {
+  id: number,
+  name: string,
+  company: string,
+  status: string,
+  type: string,
+}
+interface IDevicesStore {
+  devices: Device[],
+  setDevices: (devices: Device[]) => void,
+  updateDevice: (device: Device) => void,
+}
