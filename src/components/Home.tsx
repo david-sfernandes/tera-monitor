@@ -1,16 +1,11 @@
+import { GET } from "@/app/api/devices/route";
 import DeviceList from "./DeviceList";
 import Select from "./Select";
 import Stats from "./Stats";
 
-const getDevices = async () => {
-  const res = await fetch("http://localhost:3000/api/devices");
-  const data = await res.json();
-  return data as MilvusDevice[];
-};
-
-
 export default async function Home() {
-  const devices = await getDevices();
+  const data = await GET()
+  const devices: MilvusDevice[] = await data.json();
 
   return (
     <main className="flex flex-col min-h-screen bg-gray-100">

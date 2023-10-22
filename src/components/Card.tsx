@@ -1,9 +1,11 @@
 "use client";
 import useStatusStore from "@/store/StatusStore";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const getStatus = async (id: number) => {
-  const res = await fetch(`http://localhost:3000/api/status?id=${id}`);
+  const router = useRouter();
+  const res = await fetch(`${router.basePath}/api/status?id=${id}`);
   const data = await res.json();
   return data as StatusResponse;
 };
