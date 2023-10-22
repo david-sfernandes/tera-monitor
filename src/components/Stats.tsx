@@ -9,7 +9,7 @@ export default function Stats({ devices }: { devices: MilvusDevice[] }) {
   const other = statusList.filter((i) => i.status == "");
 
   return (
-    <section className="w-full text-zinc-900 flex justify-between items-center gap-3 my-4">
+    <section className="w-full text-zinc-900 gap-3 my-4 grid grid-cols-2 md:grid-cols-4">
       <Info title="Cadastrados" color="orange" value={devices.length} />
       <Info title="Online" color="green" value={online.length} />
       <Info title="Offline" color="red" value={offline.length} />

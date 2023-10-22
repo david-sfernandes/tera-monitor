@@ -40,10 +40,10 @@ export default function Card({
 
   useEffect(() => {
     const timeout = setTimeout(updateStatus, 2000 + id * 1500);
-    const interval = setInterval(updateStatus, 122000 + id * 5000);
+    // const interval = setInterval(updateStatus, 122000 + id * 5000);
     return () => {
       clearTimeout(timeout);
-      clearInterval(interval);
+      // clearInterval(interval);
     };
   }, []);
 
